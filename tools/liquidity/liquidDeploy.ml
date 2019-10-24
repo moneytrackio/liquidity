@@ -719,6 +719,7 @@ let run_pre ?(debug=false)
     "input", input_json;
     "storage", storage_json;
     "amount", Printf.sprintf "%S" !LiquidOptions.amount;
+    "chain_id", Printf.sprintf "%S" "NetXUdfLh6Gm88t";
   ] in
   let run_json = mk_json_obj run_fields in
   send_post ~loc_table ~data:run_json
