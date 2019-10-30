@@ -714,12 +714,13 @@ let run_pre ?(debug=false)
   let contract_json = LiquidToTezos.json_of_contract c in
   let input_json = LiquidToTezos.json_of_const input_t in
   let storage_json = LiquidToTezos.json_of_const storage_t in
+  get_head () >>= fun head ->
   let run_fields = [
     "script", contract_json;
     "input", input_json;
     "storage", storage_json;
     "amount", Printf.sprintf "%S" !LiquidOptions.amount;
-    "chain_id", Printf.sprintf "%S" "NetXUdfLh6Gm88t";
+    "chain_id", Printf.sprintf"%S" head.head_chain_id;
   ] in
   let run_json = mk_json_obj run_fields in
   send_post ~loc_table ~data:run_json
