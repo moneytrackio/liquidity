@@ -196,6 +196,7 @@ OCaml.program("liquidity",
        "ocplib-dot";
        "ocplib-liquidity-deploy";
        "ocplib-file";
+       "threads";
      ];
    });
 }
